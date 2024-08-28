@@ -8,14 +8,18 @@ footer {
 
 details > summary {
 	list-style: none;
-	border-style: solid;
+	border: 2px solid black;
+	border-right: none;
+	border-left: none;
 }
 
 details[open] > summary {
+	font-weight: bold;
 	background-color: rgba(0, 0, 255, 0.378);
 }
 
 details[open] p {
+	padding-top: 0.5rem;
 	padding-left: 1rem;
 }
 

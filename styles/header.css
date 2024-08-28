@@ -1,15 +1,45 @@
 header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	padding: 0.2rem;
+
+	@media (min-width: 640px) {
+		flex-direction: row;
+		gap: 1rem;
+	}
 }
 
 .logo {
-	height: auto;
-	max-height: 18rem;
 	width: 100%;
+
+	@media (min-width: 640px) {
+		max-width: 13rem;
+	}
 }
 
 search {
 	padding: 0.2rem;
+	position: relative;
+	width: 100%;
+
+	@media (min-width: 640px) {
+		width: 18rem;
+	}
+}
+
+search svg {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	left: 0.5rem;
+}
+
+search input {
+	padding: 0.1rem 0.1rem 0.1rem 1.2rem;
+	width: 100%;
+	border-radius: 1rem;
 }
 
 .header-items {
@@ -26,34 +56,17 @@ search {
 	align-items: center;
 }
 
-.search-bar {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	max-width: 25rem;
-}
-
-.search-bar svg {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	margin: auto 0;
-	left: 0.2rem;
-}
-
-.search-bar input {
-	padding: 0.1rem 0.1rem 0.1rem 1.2rem;
-	width: 100%;
-	height: 100%;
-	border-radius: 1rem;
-}
-
-nav {
+nav ul {
 	display: flex;
 	flex-direction: column;
 	padding: 0.2rem;
 	list-style-type: none;
 	font-size: large;
+
+	@media (min-width: 640px) {
+		flex-direction: row;
+		gap: 1.5rem;
+	}
 }
 
 nav li a,
