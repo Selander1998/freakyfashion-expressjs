@@ -88,14 +88,23 @@
 }
 
 .info-icons {
-	padding-left: 1rem;
+	padding: 1rem;
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
 	gap: 1rem;
+	justify-content: space-around;
 }
 
 .info-icons div {
 	display: flex;
-	flex-direction: row;
+	flex-basis: 100%;
 	gap: 1rem;
+
+	@media (min-width: 640px) {
+		flex-basis: 40%;
+	}
+
+	@media (min-width: 1024px) {
+		flex-basis: 20%;
+	}
 }
