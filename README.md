@@ -1,1 +1,2 @@
-Font awesome was veri good thanks you for sharez :)
+FIX:
+Move info icons to footer
