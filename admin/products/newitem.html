@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Administation</title>
+		<link rel="stylesheet" href="/styles/style.css" />
+		<link rel="stylesheet" href="/admin/products/styles/header.css" />
+		<link rel="stylesheet" href="/admin/products/styles/aside.css" />
+		<link rel="stylesheet" href="/admin/products/styles/newitem.css" />
+	</head>
+	<body>
+		<header>
+			<h2>Administation</h2>
+		</header>
+
+		<aside>Produkter</aside>
+
+		<main>
+			<h2>Ny produkt</h2>
+			<section>
+				<div class="input-name">
+					<p>Namn</p>
+					<input type="text" placeholder="Ange namn" />
+				</div>
+
+				<div class="input-description">
+					<p>Beskrivning</p>
+					<input type="text" placeholder="Ange beskrivning" />
+				</div>
+
+				<div class="input-image">
+					<p>Bild</p>
+					<input type="file" />
+				</div>
+
+				<div class="input-sku">
+					<p>SKU</p>
+					<input type="text" placeholder="Ange SKU" />
+				</div>
+
+				<div class="input-price">
+					<p>Pris</p>
+					<input type="text" />
+				</div>
+
+				<div class="input-publishingdate">
+					<p>Publiseringsdatum</p>
+					<input type="date" />
+				</div>
+
+				<div class="input-categories">
+					<p>Kategorier</p>
+
+					<input type="checkbox" id="t-shirts" />
+					<label for="t-shirts">T-Shirts</label>
+
+					<input type="checkbox" id="summer" />
+					<label for="summer">Sommar</label>
+
+					<input type="checkbox" id="pants" />
+					<label for="pants">Byxor</label>
+
+					<input type="checkbox" id="shoes" />
+					<label for="shoes">Skor</label>
+				</div>
+
+				<div class="add-item">
+					<button>Lägg till</button>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
