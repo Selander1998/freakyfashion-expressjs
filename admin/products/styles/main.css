@@ -1,7 +1,35 @@
-.grid-wrapper {
+body {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas:
+		"header header"
+		"aside main";
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: 4.5dvh 92.5dvh;
+}
+
+main {
+	grid-area: main;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
 	gap: 1rem;
+}
+
+.preamble {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.preamble button {
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	box-shadow: 1px 1px;
+}
+
+.table-icons {
+	display: flex;
+	justify-content: space-evenly;
 }
 
 col {
@@ -10,7 +38,6 @@ col {
 
 table {
 	border-collapse: collapse;
-	width: 100%;
 }
 
 thead {
@@ -19,6 +46,7 @@ thead {
 
 th {
 	text-align: left;
+	border-bottom: 2px solid black;
 }
 
 td {
@@ -27,10 +55,4 @@ td {
 
 tbody tr:nth-child(odd) {
 	background-color: rgb(211, 209, 209);
-}
-
-/* This shit is stupid, why would we want an empty row in a data table?
-To fix it we just insert blank space after any empty td element */
-td:empty::after {
-	content: "\00a0";
 }
