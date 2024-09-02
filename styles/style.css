@@ -9,6 +9,10 @@ html {
 	width: 100%;
 }
 
+.width-40 {
+	max-width: 40%;
+}
+
 .icon {
 	display: flex;
 	align-content: center;

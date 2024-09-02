@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="/styles/style.css" />
 		<link rel="stylesheet" href="/admin/products/styles/header.css" />
 		<link rel="stylesheet" href="/admin/products/styles/aside.css" />
-		<link rel="stylesheet" href="/admin/products/styles/newitem.css" />
+		<link rel="stylesheet" href="/admin/products/styles/new.css" />
 	</head>
 	<body>
 		<header>
@@ -18,35 +18,35 @@
 
 		<main>
 			<h2>Ny produkt</h2>
-			<section>
+			<form>
 				<div class="input-name">
 					<p>Namn</p>
-					<input type="text" placeholder="Ange namn" />
+					<input class="width-40" type="text" placeholder="Ange namn" />
 				</div>
 
 				<div class="input-description">
 					<p>Beskrivning</p>
-					<input type="text" placeholder="Ange beskrivning" />
+					<textarea rows="8">Ange beskrivning</textarea>
 				</div>
 
 				<div class="input-image">
 					<p>Bild</p>
-					<input type="file" />
+					<input type="file" accept="image/png, image/jpeg" />
 				</div>
 
 				<div class="input-sku">
 					<p>SKU</p>
-					<input type="text" placeholder="Ange SKU" />
+					<input class="width-40" type="text" placeholder="Ange SKU" />
 				</div>
 
 				<div class="input-price">
 					<p>Pris</p>
-					<input type="text" />
+					<input class="width-40" type="text" />
 				</div>
 
 				<div class="input-publishingdate">
 					<p>Publiseringsdatum</p>
-					<input type="date" />
+					<input class="width-40" type="date" />
 				</div>
 
 				<div class="input-categories">
@@ -65,10 +65,10 @@
 					<label for="shoes">Skor</label>
 				</div>
 
-				<div class="add-item">
+				<a href="#">
 					<button>Lägg till</button>
-				</div>
-			</section>
+				</a>
+			</form>
 		</main>
 	</body>
 </html>
