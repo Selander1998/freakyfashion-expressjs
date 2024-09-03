@@ -42,7 +42,17 @@ form div input {
 
 input[type="file"] {
 	display: none;
+}
+
+.ovveride-file-upload {
+	display: flex;
+	max-width: 25%;
+	justify-content: center;
 	border: 2px solid black;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	box-shadow: 1px 1px;
+	justify-content: center;
 }
 
 button {
