@@ -1,2 +1,1 @@
-FIX:
-Move info icons to footer
+Very cool HTML + CSS project! (for school 😎)

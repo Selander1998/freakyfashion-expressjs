@@ -21,7 +21,7 @@
 			<form>
 				<div class="input-name">
 					<p>Namn</p>
-					<input class="width-40" type="text" placeholder="Ange namn" />
+					<input class="width-40" type="text" placeholder="Ange namn" maxlength="50" required />
 				</div>
 
 				<div class="input-description">
@@ -31,13 +31,18 @@
 
 				<div class="input-image">
 					<p>Bild</p>
-					<label for="file-upload" class="ovveride-file-upload">Välj fil</label>
-					<input id="file-upload" type="file" accept="image/png, image/jpeg" />
+					<input id="file-input" type="file" accept="image/png, image/jpeg" required />
 				</div>
 
 				<div class="input-sku">
 					<p>SKU</p>
-					<input class="width-40" type="text" placeholder="Ange SKU" />
+					<input
+						class="width-40"
+						type="text"
+						placeholder="Ange SKU"
+						maxlength="6"
+						pattern="^[A-Z]{3}\d{3}$"
+						required />
 				</div>
 
 				<div class="input-price">
@@ -53,22 +58,28 @@
 				<div class="input-categories">
 					<p>Kategorier</p>
 
-					<input type="checkbox" id="t-shirts" />
-					<label for="t-shirts">T-Shirts</label>
+					<div>
+						<input type="checkbox" id="t-shirts" />
+						<label for="t-shirts">T-Shirts</label>
+					</div>
 
-					<input type="checkbox" id="summer" />
-					<label for="summer">Sommar</label>
+					<div>
+						<input type="checkbox" id="summer" />
+						<label for="summer">Sommar</label>
+					</div>
 
-					<input type="checkbox" id="pants" />
-					<label for="pants">Byxor</label>
+					<div>
+						<input type="checkbox" id="pants" />
+						<label for="pants">Byxor</label>
+					</div>
 
-					<input type="checkbox" id="shoes" />
-					<label for="shoes">Skor</label>
+					<div>
+						<input type="checkbox" id="shoes" />
+						<label for="shoes">Skor</label>
+					</div>
 				</div>
 
-				<a href="#">
-					<button>Lägg till</button>
-				</a>
+				<button class="form-submit" type="submit">Lägg till</button>
 			</form>
 		</main>
 	</body>

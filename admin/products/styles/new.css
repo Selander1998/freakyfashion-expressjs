@@ -40,24 +40,26 @@ form div input {
 	max-width: 65%;
 }
 
-input[type="file"] {
-	display: none;
-}
-
-.ovveride-file-upload {
-	display: flex;
-	max-width: 25%;
-	justify-content: center;
+input[type="file"]::file-selector-button {
 	border: 2px solid black;
 	padding: 0.5rem 1rem;
 	border-radius: 0.5rem;
 	box-shadow: 1px 1px;
-	justify-content: center;
 }
 
-button {
+.input-image input {
+	max-width: 50%;
+}
+
+.input-categories div {
+	display: flex;
+	flex-direction: row;
+}
+
+.form-submit {
 	padding: 0.5rem 1rem;
 	border-radius: 0.5rem;
 	box-shadow: 1px 1px;
 	justify-content: center;
+	max-width: 20%;
 }
