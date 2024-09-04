@@ -10,13 +10,22 @@ main {
 
 .details-image-container {
 	position: relative;
+	display: flex;
+	flex-direction: column;
 	@media (min-width: 640px) {
-		background-color: red;
 		min-width: 40%;
 	}
 	@media (min-width: 1024px) {
-		background-color: red;
 		min-width: 50%;
+	}
+}
+
+.details-image-container img {
+	@media (min-width: 640px) {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		background-color: blue;
 	}
 }
 
@@ -24,6 +33,84 @@ main {
 	position: absolute;
 	bottom: 1rem;
 	right: 1rem;
+}
+
+.slideshow-title {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin: 1rem 0;
+}
+
+.slideshow {
+	background-color: red;
+	display: flex;
+	flex-direction: row;
+}
+
+.slideshow-item {
+	padding: 0 0.5rem;
+	margin: auto;
+}
+
+.slideshow-item-details {
+	display: flex;
+	justify-content: space-between;
+}
+
+.slideshow-container {
+	position: relative;
+	overflow: hidden;
+}
+
+input[name="slider"] {
+	display: none;
+}
+
+.slides {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+	width: 200%; /* 100% per slide for 2 slides */
+}
+
+.slide {
+	display: flex;
+	flex: 1 0 50%; /* Each slide takes up 50% of the container width */
+}
+
+.slideshow-item {
+	flex: 1;
+	box-sizing: border-box;
+}
+
+.slideshow-item img {
+	width: 100%;
+}
+
+.nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	border: none;
+	padding: 0.5rem;
+	z-index: 2;
+	font-size: 1.5rem;
+}
+
+.prev {
+	left: 0.5rem;
+}
+
+.next {
+	right: 0.5rem;
+}
+
+#slide1:checked ~ .slides {
+	transform: translateX(0%);
+}
+
+#slide2:checked ~ .slides {
+	transform: translateX(-50%); /* Translate by -50% to show the second slide */
 }
 
 .details-info-container {
