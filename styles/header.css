@@ -18,6 +18,7 @@ header {
 	}
 }
 
+/* Man får använda media queries i selektors på detta sätt */
 search {
 	padding: 0.2rem;
 	position: relative;

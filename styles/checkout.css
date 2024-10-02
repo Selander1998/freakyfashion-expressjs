@@ -48,8 +48,7 @@ tbody tr:nth-child(odd) {
 	background-color: rgb(211, 209, 209);
 }
 
-/* This shit is stupid, why would we want an empty row in a data table?
-To fix it we just insert blank space after any empty td element */
+/* To fix it we just insert blank space after any empty td element */
 td:empty::after {
 	content: "\00a0";
 }
@@ -59,7 +58,6 @@ td:empty::after {
 	margin: 0.1rem 0;
 	border: 2px solid black;
 }
-
 .items-container div {
 	display: flex;
 	justify-content: space-between;
