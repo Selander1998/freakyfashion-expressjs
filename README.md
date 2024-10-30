@@ -1,1 +1,1 @@
-Very cool HTMM/CSS project with somme vanilla JS! (for school 😎)
+This could have been TypeScript... BUT, very cool HTMM/CSS project with some vanilla JS! (for school 😎)
