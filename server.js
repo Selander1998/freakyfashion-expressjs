@@ -44,8 +44,28 @@ app.get("/admin/products/new", (_, res) => {
 	res.sendFile(path.join(__dirname, "src", "/admin/products/new.html"));
 });
 
-app.get("/products/:product", (_, res) => {
-	res.sendFile(path.join(__dirname, "src", "/products/details.html"));
+app.get("/products/:product", async (req, res) => {
+	const slug = req.params.product;
+
+	if (!slug) {
+		res.status(500).send("Invalid slug url");
+		return;
+	}
+	const [result] = await db.query("SELECT * FROM `cards` WHERE `slug` = ?", [slug]);
+
+	if (result.length === 0) {
+		res.status(500).send("Invalid article url");
+		return;
+	}
+
+	const article = result.at(0);
+
+	if (!article) {
+		res.status(500).send("Invalid article url");
+		return;
+	}
+
+	res.render(path.join(__dirname, "src/views", "/products/details.ejs"), { article });
 });
 
 app.listen(PORT, () => {
