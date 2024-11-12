@@ -12,6 +12,11 @@ app.use(express.static(path.join(__dirname, "src")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
 
+const getAllCards = async () => {
+	const [result] = await db.query("SELECT * FROM cards");
+	return result;
+};
+
 const isItemNew = (dateString) => {
 	const itemDate = new Date(dateString);
 	const today = new Date();
@@ -21,7 +26,7 @@ const isItemNew = (dateString) => {
 
 app.get("/", async (_, res) => {
 	try {
-		const [cards] = await db.query("SELECT * FROM cards");
+		const cards = await getAllCards();
 		cards.forEach((card) => {
 			card.isNew = isItemNew(card.date);
 		});
@@ -45,27 +50,22 @@ app.get("/admin/products/new", (_, res) => {
 });
 
 app.get("/products/:product", async (req, res) => {
+	const cards = await getAllCards();
 	const slug = req.params.product;
 
 	if (!slug) {
 		res.status(500).send("Invalid slug url");
 		return;
 	}
-	const [result] = await db.query("SELECT * FROM `cards` WHERE `slug` = ?", [slug]);
 
-	if (result.length === 0) {
-		res.status(500).send("Invalid article url");
-		return;
-	}
-
-	const article = result.at(0);
+	const article = cards.find((card) => card.slug === slug);
 
 	if (!article) {
 		res.status(500).send("Invalid article url");
 		return;
 	}
 
-	res.render(path.join(__dirname, "src/views", "/products/details.ejs"), { article });
+	res.render(path.join(__dirname, "src/views", "/products/details.ejs"), { cards, article });
 });
 
 app.listen(PORT, () => {

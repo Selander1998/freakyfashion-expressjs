@@ -65,66 +65,31 @@
 		<div class="slideshow-container">
 			<input type="radio" name="slider" id="slide1" checked />
 			<input type="radio" name="slider" id="slide2" />
+			<input type="radio" name="slider" id="slide3" />
 
 			<div class="slides">
+				<% cards.slice(0, 9).forEach((card, index) => { %> <% if (index % 3 === 0) { %>
 				<div class="slide">
+					<% } %>
 					<div class="slideshow-item">
-						<img src="https://placehold.co/150x200" alt="Placeholder Image" />
+						<a href="<%= card.slug %>">
+							<img src="<%= card.imageUrl %>" alt="<%= card.title %>" />
+						</a>
 						<div class="slideshow-item-details">
-							<h5>Svart T-Shirt</h5>
-							<h5>199kr</h5>
+							<h5><%= card.title %></h5>
+							<h5><%= card.price %></h5>
 						</div>
-						<span>Levis</span>
+						<span><%= card.brand %></span>
 					</div>
-					<div class="slideshow-item">
-						<img src="https://placehold.co/150x200" alt="Placeholder Image" />
-						<div class="slideshow-item-details">
-							<h5>Svart T-Shirt</h5>
-							<span>199kr</span>
-						</div>
-						<span>Levis</span>
-					</div>
-					<div class="slideshow-item">
-						<img src="https://placehold.co/150x200" alt="Placeholder Image" />
-						<div class="slideshow-item-details">
-							<h5>Svart T-Shirt</h5>
-							<span>199kr</span>
-						</div>
-						<span>Levis</span>
-					</div>
+					<% if ((index + 1) % 3 === 0 || index === cards.slice(0, 9).length - 1) { %>
 				</div>
-
-				<div class="slide">
-					<div class="slideshow-item">
-						<img src="https://placehold.co/150x200" alt="Placeholder Image" />
-						<div class="slideshow-item-details">
-							<h5>Svart T-Shirt</h5>
-							<span>199kr</span>
-						</div>
-						<span>Levis</span>
-					</div>
-					<div class="slideshow-item">
-						<img src="https://placehold.co/150x200" alt="Placeholder Image" />
-						<div class="slideshow-item-details">
-							<h5>Svart T-Shirt</h5>
-							<span>199kr</span>
-						</div>
-						<span>Levis</span>
-					</div>
-					<div class="slideshow-item">
-						<img src="https://placehold.co/150x200" alt="Placeholder Image" />
-						<div class="slideshow-item-details">
-							<h5>Svart T-Shirt</h5>
-							<span>199kr</span>
-						</div>
-						<span>Levis</span>
-					</div>
-				</div>
+				<% } %> <% }); %>
 			</div>
-			<label for="slide1" class="nav prev">&#10094;</label>
-			<label for="slide2" class="nav next">&#10095;</label>
-		</div>
 
+			<label for="slide3" class="nav prev">&#10094;</label>
+			<label for="slide2" class="nav next">&#10095;</label>
+			<label for="slide1" class="nav next">&#10095;</label>
+		</div>
 		<section class="info-icons">
 			<div>
 				<svg class="icon icon-medium" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
