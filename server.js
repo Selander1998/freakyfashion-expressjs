@@ -38,7 +38,7 @@ app.get("/", async (_, res) => {
 });
 
 app.get("/checkout", (_, res) => {
-	res.render(path.join(__dirname, "src/views", "checkout.hejstml"));
+	res.render(path.join(__dirname, "src/views", "checkout.ejs"));
 });
 
 app.get("/details", (_, res) => {
