@@ -53,11 +53,11 @@ app.get("/details", (_, res) => {
 });
 
 app.get("/admin/products", (_, res) => {
-	res.sendFile(path.join(__dirname, "src", "/admin/products/index.html"));
+	res.render(path.join(__dirname, "src", "/admin/products/index.ejs"));
 });
 
 app.get("/admin/products/new", (_, res) => {
-	res.sendFile(path.join(__dirname, "src", "/admin/products/new.html"));
+	res.render(path.join(__dirname, "src", "/admin/products/new.ejs"));
 });
 
 app.get("/products/:product", async (req, res) => {
@@ -79,10 +79,6 @@ app.get("/products/:product", async (req, res) => {
 	res.render(path.join(__dirname, "src/views", "/products/details.ejs"), { cards, article });
 });
 
-app.listen(PORT, () => {
-	console.log(`Server is running on http://${process.env.HOST}:${PORT}`);
-});
-
 app.get("/api/products/:product", (req, res) => {
 	const productSlug = req.query.product;
 	const product = cards.find((x) => x.slug === productSlug);
@@ -95,4 +91,8 @@ app.get("/api/products/:product", (req, res) => {
 app.get("/api/cards", async (_, res) => {
 	const cards = await getAllCards();
 	res.json(cards);
+});
+
+app.listen(PORT, () => {
+	console.log(`Server is running on http://${process.env.HOST}:${PORT}`);
 });
