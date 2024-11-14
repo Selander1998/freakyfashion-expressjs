@@ -71,7 +71,11 @@
 			</section>
 
 			<section class="article-cards">
-				<% cards.forEach((card, index) => { %>
+				<% if (amount > 1) { %>
+				<h3>Hittade <%= amount %> produkter</h3>
+				<% } else {%>
+				<h3>Hittade <%= amount %> produkt</h3>
+				<% } %> <% cards.forEach((card, index) => { %>
 				<div class="article-card" data-index="<%= index %>">
 					<a class="article-card-image" href="/products/<%= card.slug %>">
 						<img src="<%= card.imageUrl %>" alt="<%= card.title %>" class="full" />
@@ -174,23 +178,6 @@
 		</footer>
 	</body>
 	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			function updateVisibleArticles() {
-				const articleCards = document.querySelectorAll(".article-card");
-				if (window.innerWidth < 640) {
-					articleCards.forEach((card, index) => {
-						card.style.display = index < 4 ? "block" : "none";
-					});
-				} else {
-					articleCards.forEach((card) => {
-						card.style.display = index < 8 ? "block" : "none";
-					});
-				}
-			}
-			updateVisibleArticles();
-			window.addEventListener("resize", updateVisibleArticles);
-		});
-
 		const searchForm = document.getElementById("searchForm");
 
 		searchForm.addEventListener("submit", (event) => {

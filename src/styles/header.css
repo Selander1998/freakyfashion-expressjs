@@ -18,8 +18,7 @@ header {
 	}
 }
 
-/* Man får använda media queries i selektors på detta sätt */
-search {
+form {
 	padding: 0.2rem;
 	position: relative;
 	width: 100%;
@@ -29,7 +28,7 @@ search {
 	}
 }
 
-search svg {
+form svg {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -37,7 +36,7 @@ search svg {
 	left: 0.5rem;
 }
 
-search input {
+form input {
 	padding: 0.1rem 0.1rem 0.1rem 1.2rem;
 	width: 100%;
 	border-radius: 1rem;

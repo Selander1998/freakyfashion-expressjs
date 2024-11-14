@@ -62,6 +62,10 @@
 	}
 }
 
+.article-cards h3 {
+	justify-self: center;
+}
+
 .article-cards div {
 	position: relative;
 }

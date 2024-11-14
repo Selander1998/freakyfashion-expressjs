@@ -37,12 +37,23 @@ app.get("/", async (_, res) => {
 	}
 });
 
+app.get("/search", async (req, res) => {
+	const searchQuery = req.query.q;
+	const [cards] = await db.query(`SELECT * FROM cards WHERE title LIKE ?`, [`%${searchQuery}%`]);
+
+	res.render(path.join(__dirname, "src/views", "search.ejs"), { cards, amount: cards.length });
+});
+
 app.get("/checkout", (_, res) => {
 	res.render(path.join(__dirname, "src/views", "checkout.ejs"));
 });
 
 app.get("/details", (_, res) => {
 	res.render(path.join(__dirname, "src/views", "details.ejs"));
+});
+
+app.get("/admin/products", (_, res) => {
+	res.sendFile(path.join(__dirname, "src", "/admin/products/index.html"));
 });
 
 app.get("/admin/products/new", (_, res) => {
@@ -79,4 +90,9 @@ app.get("/api/products/:product", (req, res) => {
 		return res.status(404).send();
 	}
 	res.send(product);
+});
+
+app.get("/api/cards", async (_, res) => {
+	const cards = await getAllCards();
+	res.json(cards);
 });
