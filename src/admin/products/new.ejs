@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Administation</title>
+		<title>Administration</title>
 		<link rel="stylesheet" href="/styles/style.css" />
 		<link rel="stylesheet" href="/admin/products/styles/header.css" />
 		<link rel="stylesheet" href="/admin/products/styles/aside.css" />
@@ -18,26 +18,38 @@
 
 		<main>
 			<h2>Ny produkt</h2>
-			<form>
+			<form action="/api/cards/create" method="POST">
 				<div class="input-name">
 					<span>Namn</span>
-					<input class="width-40" type="text" placeholder="Ange namn" maxlength="50" required />
+					<input
+						class="width-40"
+						name="name"
+						type="text"
+						placeholder="Ange namn"
+						maxlength="25"
+						required />
 				</div>
 
 				<div class="input-description">
 					<span>Beskrivning</span>
-					<textarea rows="8">Ange beskrivning</textarea>
+					<textarea name="description" rows="8" placeholder="Ange beskrivning" required></textarea>
 				</div>
 
 				<div class="input-image">
-					<span>Bild</span>
-					<input id="file-input" type="file" accept="image/png, image/jpeg" required />
+					<span>Bild-URL</span>
+					<input class="width-40" name="image" type="text" required />
+				</div>
+
+				<div class="input-brand">
+					<span>Märke</span>
+					<input class="width-40" name="brand" type="text" required />
 				</div>
 
 				<div class="input-sku">
 					<span>SKU</span>
 					<input
 						class="width-40"
+						name="sku"
 						type="text"
 						placeholder="Ange SKU"
 						maxlength="6"
@@ -47,34 +59,34 @@
 
 				<div class="input-price">
 					<span>Pris</span>
-					<input class="width-40" type="text" />
+					<input class="width-40" name="price" type="text" required />
 				</div>
 
 				<div class="input-publishingdate">
 					<span>Publiseringsdatum</span>
-					<input class="width-40" type="date" />
+					<input class="width-40" name="publishingDate" type="date" required />
 				</div>
 
 				<div class="input-categories">
 					<span>Kategorier</span>
 
 					<div>
-						<input type="checkbox" id="t-shirts" />
+						<input type="checkbox" name="categories" value="T-Shirts" id="t-shirts" />
 						<label for="t-shirts">T-Shirts</label>
 					</div>
 
 					<div>
-						<input type="checkbox" id="summer" />
+						<input type="checkbox" name="categories" value="Sommar" id="summer" />
 						<label for="summer">Sommar</label>
 					</div>
 
 					<div>
-						<input type="checkbox" id="pants" />
+						<input type="checkbox" name="categories" value="Byxor" id="pants" />
 						<label for="pants">Byxor</label>
 					</div>
 
 					<div>
-						<input type="checkbox" id="shoes" />
+						<input type="checkbox" name="categories" value="Skor" id="shoes" />
 						<label for="shoes">Skor</label>
 					</div>
 				</div>

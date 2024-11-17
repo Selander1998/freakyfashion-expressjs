@@ -8,6 +8,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, "src")));
+app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
@@ -107,6 +108,41 @@ app.delete("/api/cards/:id", async (req, res) => {
 		console.error("Error deleting product:", error);
 		res.status(500).json({ message: "Internal server error" });
 	}
+});
+
+function formatToSlug(name) {
+	return name.trim().toLowerCase().replace(/\s+/g, "-");
+}
+
+app.post("/api/cards/create", async (req, res) => {
+	const item = req.body;
+	const slug = formatToSlug(item.name);
+	const query = `INSERT INTO cards (
+		slug,
+		title,
+		price,
+		brand,
+		imageUrl,
+		date,
+		description,
+		sku
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+	const values = [
+		slug,
+		item.name,
+		`${item.price}kr`,
+		item.brand,
+		item.image,
+		item.publishingDate,
+		item.description,
+		item.sku,
+	];
+	const [result] = await db.execute(query, values);
+	console.log(result);
+
+	console.log("adding new item :)");
+	console.log(req.body.name);
+	res.render(path.join(__dirname, "src", "/admin/products/index.ejs"));
 });
 
 app.listen(PORT, () => {
