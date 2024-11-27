@@ -15,7 +15,7 @@ app.set("views", path.join(__dirname, "src/views"));
 app.use(express.json());
 
 const getAllCards = async () => {
-	const [result] = await db.query("SELECT * FROM cards");
+	const [result] = await db.query("SELECT * FROM cards WHERE date <= CURDATE()");
 	return result;
 };
 
